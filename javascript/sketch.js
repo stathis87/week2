@@ -1,5 +1,6 @@
 let balls = []; // Array to store multiple balls
 let draggingBall = null; 
+let started = false;
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
@@ -8,6 +9,8 @@ function setup() {
 
 function draw() {
   background(255);
+
+  if (started){
   for (let i = 0; i < balls.length; i++) {
     for (let j = 0; j < balls.length; j++) {
       if (i !== j) {
@@ -17,9 +20,18 @@ function draw() {
     balls[i].update();
     balls[i].display();
   }
+  // if (mousePressed()) {
+  //   removeText();
+  // }
+  } else {
+    drawText();
+  }
 }
 
+
+
 function mouseClicked() {
+  started = true
   balls.push(new Ball(createVector(mouseX, mouseY), createVector(random(-2, 2), random(-2, 2))));
 }
 
@@ -30,6 +42,8 @@ function mousePressed() {
       draggingBall = balls[i];
     }
   }
+  removeText();
+
 }
 
 function mouseDragged() {
@@ -39,9 +53,6 @@ function mouseDragged() {
   }
 }
 
-function mouseReleased() {
-  //draggingBall = null;
-}
 
 class Ball {
   constructor(location, velocity) {
@@ -110,24 +121,50 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+function drawText() {
+  push();
+  noStroke();
+  fill(0);
+  textSize(20);
+  textAlign(CENTER);
+  text('click to add new balls', width/2, height/2);
+  pop();
+  }
+
+function removeText() {
+  push();
+  noStroke();
+  fill(0);
+  textSize(20);
+  textAlign(CENTER);
+  text('', width/2, height/2);
+  pop();
+
+}
+
+// ------------------------------------ //
+//From here is work in progress. 
+//The aim is to add a GUI with a button to release new balls that destroy the current balls
+
+
 
 function handleButtonPress() {
-  if(!feeding){
+  if(!addNewBall){
     //set food to random value
     for( let i=0 ; i < 10; i++){
       let f = new Food(random(width), random(height));
       foodFeed.push(f);
     }
-    feeding = true;
-    button.html("FEEDING");
+    addNewBall = true;
+    button.html("addNewBall");
     button.addClass("inactive");
-    setTimeout(feedingF, 1000);
+    setTimeout(addNewBallF, 1000);
   }
 }
 
-function feedingF() {
-    feeding = false;
-    button.html("FEED");
+function addNewBallF() {
+    addNewBall = false;
+    button.html("addNewBall");
     button.removeClass("inactive");
   
 } 
@@ -135,7 +172,7 @@ function feedingF() {
 //Add Gui
 function addGUI() {
   //add a button
-  button = createButton("FEED");
+  button = createButton("Add ball eater");
   button.addClass("button");
   //Add the play button to the parent gui HTML element
   button.parent("gui-container");
