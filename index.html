@@ -1,48 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Week 2</title>
-  <link rel="stylesheet" type="text/css" href="./base.css">
-	<link rel="stylesheet" type="text/css" href="./style.css">
+  <head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- meta viewport tag needed to make site responsive on mobile devices https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<meta name="fragment" content="!">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-	<! -- Favicons -->
+    <!-- Using local versions of the scripts is better when you start to finalise a project
+    OR if you are showing a work in an exhibition setting, removing reliance on the internet 
+    & runnning everything locally will make the work more robust if the network is bad.-->
   
+    <!--  -->
+    <script src="javascript/libs/p5.js"></script>
+    <!-- <script src="javascript/libs/p5.sound.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8" />
 
-
-	<! -- Facebook Sharing -->
-	<meta property="og:url"                content=""/>
-	<meta property="og:type"               content="website"/>
-	<meta property="og:title"              content="poem"/>
-	<meta property="og:description"        content="A poem by Mahmoud Darwish"/>
-	<meta property="og:image"              content=""/>
-
-	<!-- Twitter -->
-	<meta property="twitter:card" content="">
-	<meta property="twitter:url" content="">
-	<meta property="twitter:title" content="poem">
-	<meta property="twitter:description" content="A poem by Mahmoud Darwish">
-	<meta property="twitter:image" content="">
-
-</head>
-
-
-<body>
-
-  <header>
-  </header>
-
-  <section class="tlt">
-    <h1>Week 2 is loading</h1>
-  </section>
-  <section class="sketch">
-	
-  </section>
-
-</body>
+  </head>
+  <body>
+    <main>
+      <div id="gui-container"></div>
+      <div id="sketch-container"></div>
+      
+    </main>
+    <script src="javascript/sketch.js"></script>
+  </body>
+</html>
