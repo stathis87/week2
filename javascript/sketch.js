@@ -152,8 +152,8 @@ function handleButtonPress() {
   if(!addNewBall){
     //set food to random value
     for( let i=0 ; i < 10; i++){
-      let f = new Food(random(width), random(height));
-      foodFeed.push(f);
+      let f = new Ball(random(width), random(height));
+      balls.push(f);
     }
     addNewBall = true;
     button.html("addNewBall");
